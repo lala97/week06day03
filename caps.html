@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.main{
+			width:1000px;
+			margin:0px auto;
+			border:1px solid red;	
+			}
+		.imgDiv{
+			width: 100%;
+			height: 400px;
+			overflow: hidden;
+			background: brown;
+		}
+        .imgDiv img{
+        	width: 100%;
+        }
+        .textDiv{
+        	width: 99%;
+        	display: flex;
+        	flex-wrap: wrap;
+        	padding:5px;
+        	background: brown;
+        	}
+        .setting{width: 100%;}
+
+      .setting  input{
+			padding:10px 20px;
+			width:calc(100% - 42px);
+			border:1px solid brown;
+			margin:10px 0px;
+			
+		}
+		.setting button{
+			cursor:pointer;
+			border:none;
+			background:brown;
+			color:white;
+			padding:5px 10px;
+		}
+        
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+  
+		var maindiv=document.createElement('div');
+		maindiv.setAttribute("class", "main")
+		// image
+		var imgDiv=document.createElement('div');
+		imgDiv.setAttribute("class", "imgDiv");
+		var img=document.createElement('img');
+		img.setAttribute("src", "img/image1.jpg")
+		imgDiv.appendChild(img);
+
+
+		// caps  text 
+		var textdiv=document.createElement("div");
+		textdiv.setAttribute("class", "textDiv");
+		var textpara=document.createElement("p");
+		text=document.createTextNode("Caps text");
+		textpara.appendChild(text);
+		textdiv.appendChild(textpara);
+
+        
+        // Add settings
+        var setting=document.createElement("div");
+        setting.setAttribute("class", "setting");
+             //input for image
+	        var input1=document.createElement("input");
+	        input1.setAttribute("type", "text");
+	        input1.setAttribute("value", "add image");
+	    setting.appendChild(input1);
+	        //button for image
+	        var imgBtn=document.createElement("button");
+	        imgBtn.setAttribute("onclick", "addImage()");
+	        imgBtn.innerHTML="Add image";
+	     setting.appendChild(imgBtn);
+
+	         //input for text
+	        var input2=document.createElement("input");
+	        input2.setAttribute("type", "text");
+	        input2.setAttribute("value", "add text");
+	    setting.appendChild(input2);
+	        //button for text
+	        var txtBtn=document.createElement("button");
+	        txtBtn.setAttribute("onclick", "addText()");
+	        txtBtn.innerHTML="Add text";
+	     setting.appendChild(txtBtn);
+
+
+
+
+	maindiv.appendChild(imgDiv);
+	maindiv.appendChild(textdiv);
+	maindiv.appendChild(setting);
+	document.body.appendChild(maindiv);
+   
+
+
+	function addImage () {
+		document.getElementsByTagName('img')[0].src=document.getElementsByTagName("input")[0].value;
+	}
+	function addText () {
+		document.getElementsByTagName("p")[0].innerHTML=document.getElementsByTagName('input')[1].value;
+	}
+</script>
+</body>
+</html>
